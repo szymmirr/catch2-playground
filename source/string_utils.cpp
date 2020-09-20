@@ -10,3 +10,8 @@ std::string string_utils::left_pad(std::string input, std::size_t length, char f
   input.insert(input.begin(), to_insert, filler);
   return input;
 }
+
+int whatever()
+{
+  return 0;
+}
