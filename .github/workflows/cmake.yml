@@ -15,6 +15,11 @@ jobs:
       run: cmake --build build
     - name: test
       run: cd build && ctest
+    - name: Upload zip
+      uses: actions/upload-artifact@v1
+      with:
+        name: ubuntu-build
+        path: build
 
   build-windows:
 
@@ -35,4 +40,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: windows-build
-        path: build
+        path: build/Release/test.exe
