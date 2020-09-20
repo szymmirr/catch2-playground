@@ -1,18 +1,11 @@
-project(muster)
+project(project)
 cmake_minimum_required(VERSION 2.8)
 
-add_executable(test test.c)
-
-
 enable_testing()
-add_test(usage_test test)
-set_tests_properties(usage_test PROPERTIES WILL_FAIL TRUE)
 
-add_test(success_test test 0)
-set_tests_properties(success_test PROPERTIES PASS_REGULAR_EXPRESSION "SUCCESS")
+add_library(tests OBJECT test.cpp)
 
-add_test(fail_test test 1)
-set_tests_properties(fail_test PROPERTIES WILL_FAIL TRUE)
+target_link_libraries(Catch2::Catch2)
 
-add_test(fail_test_output test 1)
-set_tests_properties(fail_test_output PROPERTIES PASS_REGULAR_EXPRESSION "FAIL")
+add_executable(test test.cpp)
+add_test(NAME test1 COMMAND test)
