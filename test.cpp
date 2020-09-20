@@ -1,11 +1,11 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
-#include "main.h"
+#include "hello.h"
 
 TEST_CASE("Succesful return", "[whatever]") {
-	REQUIRE(main() == 0);
+	REQUIRE(hello() == 0);
 }
 
 TEST_CASE("Unsuccesful return", "[whatever]") {
-	REQUIRE_FALSE(main() == 1);
+	REQUIRE_FALSE(hello() == 1);
 }
