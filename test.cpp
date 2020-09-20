@@ -1,5 +1,5 @@
 #define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+#include "Catch2/single_include/catch2/catch.hpp"
 #include "main.h"
 
 TEST_CASE("Succesful return", "[whatever]") {
