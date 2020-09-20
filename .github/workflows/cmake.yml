@@ -41,7 +41,7 @@ jobs:
       env:
         MAKEFLAGS: "-j2"
     - name: test
-      run: cd build && ctest -j2
+      run: cd build && ctest -j2 -C Debug
     - name: ls
       run: cd build && dir
     - name: Upload zip
