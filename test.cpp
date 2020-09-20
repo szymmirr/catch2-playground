@@ -4,7 +4,7 @@
 
 
 TEST_CASE("Succesful return", "[whatever]") {
-	REQUIRE(hello() == 1);
+	REQUIRE(hello() == 0);
 }
 
 TEST_CASE("Unsuccesful return", "[whatever]") {

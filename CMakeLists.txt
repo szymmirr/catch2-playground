@@ -21,4 +21,5 @@ target_link_libraries(unit_tests
   hello
 )
 
-add_test(NAME test1 COMMAND unit_tests)
+include(ParseAndAddCatchTests)
+ParseAndAddCatchTests(unit_tests)
