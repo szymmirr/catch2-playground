@@ -1,9 +1,9 @@
 project(project)
 cmake_minimum_required(VERSION 2.8)
 
-find_package(Catch2 REQUIRED)
-
+include(CTest)
 enable_testing()
+find_package(Catch REQUIRED)
 
 add_library(hello
   hello.h
@@ -23,6 +23,5 @@ target_link_libraries(unit_tests
   hello
 )
 
-include(CTest)
 include(ParseAndAddCatchTests)
 ParseAndAddCatchTests(unit_tests)
