@@ -41,9 +41,12 @@ jobs:
     # run tests
     - name: run test 1
       run: ctest
+    # ls
+    - name: ls
+      run: ls -l
     # upload artifact, game binary
     - name: Upload Example binary
       uses: actions/upload-artifact@v1
       with:
         name: upload binary
-        path: build/src
+        path: build
