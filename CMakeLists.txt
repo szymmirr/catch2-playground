@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 2.8)
 
 include(CTest)
 enable_testing()
-find_package(Catch REQUIRED)
 
 add_library(hello
   hello.h
