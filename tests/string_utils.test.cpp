@@ -10,7 +10,7 @@ SCENARIO("strings can be left-padded") {
       auto length = 4;
       REQUIRE(length < string.length());
       THEN("it stays the same") {
-        REQUIRE(string_utils::left_pad(string, length) == string);
+        REQUIRE(string_utils::left_pad(string, length) == "dupa");
       }
     }
 
