@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
   }
 
   if (atoi(argv[1]) == 0) {
-    printf("SUCCESS\n");
+    printf("SUCCESS!\n");
     exit(0);
   } else {
     printf("FAIL\n");
