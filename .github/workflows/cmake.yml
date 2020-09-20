@@ -19,9 +19,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: ubuntu-build
-        path: build
-    - name: urn
-      run: ./build/test
+        path: build/test
 
   build-windows:
 
