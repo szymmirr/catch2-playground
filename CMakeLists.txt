@@ -8,7 +8,7 @@ add_library(tests OBJECT tests.cpp)
 add_library(Catch INTERFACE)
 
 add_executable(unit_tests
-  test.cpp
+  tests.cpp
 )
 
 target_link_libraries(unit_tests
