@@ -16,7 +16,7 @@ jobs:
     - name: test
       run: cd build && ctest
     - name: Upload zip
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       with:
         name: ubuntu-build
         path: build/test
