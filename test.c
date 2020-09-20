@@ -8,7 +8,7 @@ int main(int argc, char **argv) {
     exit(1);
   }
 
-  if (atoi(argv[1]) == 1) {
+  if (atoi(argv[1]) == 0) {
     printf("SUCCESS\n");
     exit(0);
   } else {
