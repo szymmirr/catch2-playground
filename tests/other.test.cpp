@@ -2,7 +2,7 @@
 #include "string_utils.h"
 
 TEST_CASE("Succesful return", "[ehhhh]") {
-	REQUIRE(whatever() == 0);
+	REQUIRE(whatever() == 1);
 }
 
 TEST_CASE("Unuccesful return", "[ehhhh]") {
@@ -11,6 +11,6 @@ TEST_CASE("Unuccesful return", "[ehhhh]") {
 
 SCENARIO("two") {
     WHEN("three") {
-      REQUIRE(whatever() == 0);
+      REQUIRE(whatever() == 1);
     }
 }
