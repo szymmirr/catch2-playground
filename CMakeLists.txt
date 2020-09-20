@@ -21,4 +21,4 @@ target_link_libraries(unit_tests
   hello
 )
 
-add_test(NAME test1 COMMAND tests)
+add_test(NAME test1 COMMAND unit_tests)
