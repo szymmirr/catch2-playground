@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 
 enable_testing()
 
-add_library(tests OBJECT test.cpp)
+add_library(tests OBJECT tests.cpp)
 
 add_library(Catch INTERFACE)
 
