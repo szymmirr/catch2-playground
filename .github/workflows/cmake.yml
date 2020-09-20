@@ -42,6 +42,8 @@ jobs:
         MAKEFLAGS: "-j2"
     - name: test
       run: cd build && ctest -j2
+    - name: ls
+      run: cd build && dir
     - name: Upload zip
       uses: actions/upload-artifact@v2
       with:
