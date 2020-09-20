@@ -40,9 +40,7 @@ jobs:
         MAKEFLAGS: "-j2"
     # run tests
     - name: run test 1
-      run: test
-    - name: run test 2
-      run: build/tst/Example2_tst
+      run: ctest
     # upload artifact, game binary
     - name: Upload Example binary
       uses: actions/upload-artifact@v1
