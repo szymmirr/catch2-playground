@@ -20,6 +20,8 @@ jobs:
       with:
         name: ubuntu-build
         path: build
+    - name: urn
+      run: ./build/test
 
   build-windows:
 
