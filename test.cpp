@@ -1,6 +1,7 @@
 #define CATCH_CONFIG_MAIN
-#include "catch.hpp"
 #include "hello.h"
+#include "catch.hpp"
+
 
 TEST_CASE("Succesful return", "[whatever]") {
 	REQUIRE(hello() == 0);
