@@ -10,6 +10,7 @@ set(TARGET_NAME tests)
 
 add_executable(${TARGET_NAME}
   main.cpp
+  other.test.cpp
   ${UNIT_TEST_SOURCE_LIST})
 
 target_link_libraries(${TARGET_NAME}
@@ -21,3 +22,8 @@ target_include_directories(${TARGET_NAME}
 add_test(
   NAME ${TARGET_NAME}
   COMMAND ${TARGET_NAME} -o report.xml -r junit)
+  
+add_test(
+  NAME other.test
+  COMMAND other.test)
+  
