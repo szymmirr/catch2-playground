@@ -15,6 +15,8 @@ jobs:
       run: cmake --build build
       env:
         MAKEFLAGS: "-j2"
+    - name: ls
+      run: cd build && ls -l
     - name: test
       run: cd build && ctest -j2
     - name: ls
@@ -40,8 +42,10 @@ jobs:
       run: cmake --build build --config Release
       env:
         MAKEFLAGS: "-j2"
+    - name: ls
+      run: cd build && dir
     - name: test
-      run: cd build && ctest -j2 -C Release
+      run: cd build && ctest -j2 
     - name: ls
       run: cd build && dir
     - name: Upload zip
