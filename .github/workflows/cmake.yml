@@ -10,9 +10,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: configure
-      run: mkdir build && cd build && cmake -DCMAKE_CXX_FLAGS="-Werror" ..
+      run: mkdir build && cd build && cmake ..
     - name: build
-      run: cmake --build build
+      run: cmake --build build --config Release -j2
       env:
         MAKEFLAGS: "-j2"
     - name: ls
@@ -21,25 +21,25 @@ jobs:
       run: cd build && ctest -j2
     - name: ls
       run: cd build && ls -l
-    - name: Upload zip
+    - name: Upload ubuntu zip
       uses: actions/upload-artifact@v2
       with:
         name: ubuntu-build
-        path: build/test
+        path: build/hello
 
   build-windows:
 
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest, windows-2016]
+        os: [windows-latest, windows-2016, macOS-latest]
     
     steps:
     - uses: actions/checkout@v2
     - name: configure
       run: mkdir build && cd build && cmake ..
     - name: build
-      run: cmake --build build --config Release
+      run: cmake --build build --config Release -j2
       env:
         MAKEFLAGS: "-j2"
     - name: ls
@@ -48,8 +48,13 @@ jobs:
       run: cd build && ctest -j2 
     - name: ls
       run: cd build && dir
-    - name: Upload zip
+    - name: Upload windows zip
       uses: actions/upload-artifact@v2
       with:
         name: windows-build
-        path: build/Release/test.exe
+        path: build/Release/hello.exe
+    - name: Upload macos zip
+      uses: actions/upload-artifact@v2
+      with:
+        name: macOS-build
+        path: build/hello
