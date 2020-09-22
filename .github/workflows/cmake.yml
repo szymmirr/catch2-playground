@@ -1,36 +1,53 @@
-name: C/C++ CI
+name: Build, test and upload
 
 on: [push]
 
 jobs:
-  build-test-upload:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
+  build-ubuntu:
+    runs-on: ubuntu-latest
     
     steps:
     - uses: actions/checkout@v2
-    
     - name: configure
       run: mkdir build && cd build && cmake ..
-      
     - name: build
       run: cmake --build build --config Release -j2
-      env:
-        MAKEFLAGS: "-j2"
-        
     - name: test
       run: cd build && ctest -j2
-      
-    - name: Upload ubuntu zip
+    - name: Upload zip
       uses: actions/upload-artifact@v2
       with:
         name: ubuntu-build
         path: build/hello
-        
-    - name: Upload windows zip
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: configure
+      run: mkdir build && cd build && cmake ..
+    - name: build
+      run: cmake --build build --config Release -j2
+    - name: test
+      run: cd build && ctest -j2
+    - name: Upload zip
       uses: actions/upload-artifact@v2
       with:
         name: windows-build
-        path: build/Release/hello.exe
+        path: build/hello
+        
+  build-macOS:
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: configure
+      run: mkdir build && cd build && cmake ..
+    - name: build
+      run: cmake --build build --config Release -j2
+    - name: test
+      run: cd build && ctest -j2
+    - name: Upload zip
+      uses: actions/upload-artifact@v2
+      with:
+        name: macOS-build
+        path: build/hello
