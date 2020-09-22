@@ -2,8 +2,6 @@ name: Build, test and upload
 
 on: [push]
 
-set(ENV{EXE_NAME} "hello")
-
 env:
   BUILD_TYPE: Release
 
@@ -22,7 +20,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: ubuntu-build
-        path: build/$ENV{EXE_NAME}
+        path: build/hello
 
   build-windows:
     runs-on: windows-latest
@@ -38,7 +36,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: windows-build
-        path: build/Release/$ENV{EXE_NAME}.exe
+        path: build/Release/hello.exe
 
   build-macos:
     runs-on: macos-latest
@@ -54,4 +52,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: macos-build
-        path: build/$ENV{EXE_NAME}
+        path: build/hello
