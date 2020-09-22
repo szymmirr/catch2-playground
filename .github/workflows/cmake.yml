@@ -2,23 +2,25 @@ name: Build, test and upload
 
 on: [push]
 
+BUILD_TYPE: Release
+EXE_NAME: hello
+
 jobs:
   build-ubuntu:
     runs-on: ubuntu-latest
-    
     steps:
     - uses: actions/checkout@v2
     - name: configure
       run: mkdir build && cd build && cmake ..
     - name: build
-      run: cmake --build build --config Release -j2
+      run: cmake --build build --config $BUILD_TYPE -j2
     - name: test
       run: cd build && ctest -j2
     - name: Upload zip
       uses: actions/upload-artifact@v2
       with:
         name: ubuntu-build
-        path: build/hello
+        path: build/$EXE_NAME
 
   build-windows:
     runs-on: windows-latest
@@ -27,15 +29,15 @@ jobs:
     - name: configure
       run: mkdir build && cd build && cmake ..
     - name: build
-      run: cmake --build build --config Release -j2
+      run: cmake --build build --config $BUILD_TYPE -j2
     - name: test
       run: cd build && ctest -j2
     - name: Upload zip
       uses: actions/upload-artifact@v2
       with:
         name: windows-build
-        path: build/Release/hello.exe
-        
+        path: build/Release/$EXE_NAME.exe
+
   build-macos:
     runs-on: macos-latest
     steps:
@@ -43,11 +45,11 @@ jobs:
     - name: configure
       run: mkdir build && cd build && cmake ..
     - name: build
-      run: cmake --build build --config Release -j2
+      run: cmake --build build --config $BUILD_TYPE -j2
     - name: test
       run: cd build && ctest -j2
     - name: Upload zip
       uses: actions/upload-artifact@v2
       with:
         name: macos-build
-        path: build/hello
+        path: build/$EXE_NAME
