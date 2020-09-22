@@ -36,8 +36,8 @@ jobs:
         name: windows-build
         path: build/hello
         
-  build-macOS:
-    runs-on: macOS-latest
+  build-macos:
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
     - name: configure
@@ -49,5 +49,5 @@ jobs:
     - name: Upload zip
       uses: actions/upload-artifact@v2
       with:
-        name: macOS-build
+        name: macos-build
         path: build/hello
