@@ -2,8 +2,9 @@ name: Build, test and upload
 
 on: [push]
 
-BUILD_TYPE: Release
-EXE_NAME: hello
+env:
+  BUILD_TYPE: Release
+  EXE_NAME: hello
 
 jobs:
   build-ubuntu:
