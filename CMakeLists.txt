@@ -14,6 +14,8 @@ add_library(example_unit_test
     Palindrome.cpp
 )
 
+add_executable(reverse Reverse.cpp)
+add_executable(palindrome Palindrome.cpp)
 
 #############################################
 # Unit tests
