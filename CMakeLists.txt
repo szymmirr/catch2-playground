@@ -32,7 +32,6 @@ target_link_libraries(unit_tests
 
 target_link_libraries(unit_tests2
     example_unit_test
-    Catch2::Test
 )
 
 add_test(first_test unit_tests)
