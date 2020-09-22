@@ -2,9 +2,6 @@ name: Build, test and upload
 
 on: [push]
 
-env:
-  BUILD_TYPE: Release
-
 jobs:
   build-ubuntu:
     runs-on: ubuntu-latest
@@ -13,7 +10,7 @@ jobs:
     - name: configure
       run: mkdir build && cd build && cmake ..
     - name: build
-      run: cmake --build build --config $BUILD_TYPE -j2
+      run: cmake --build build --config Release -j2
     - name: test
       run: cd build && ctest -j2
     - name: Upload zip
@@ -29,7 +26,7 @@ jobs:
     - name: configure
       run: mkdir build && cd build && cmake ..
     - name: build
-      run: cmake --build build --config $BUILD_TYPE -j2
+      run: cmake --build build --config Release -j2
     - name: test
       run: cd build && ctest -j2
     - name: dir
@@ -47,7 +44,7 @@ jobs:
     - name: configure
       run: mkdir build && cd build && cmake ..
     - name: build
-      run: cmake --build build --config $BUILD_TYPE -j2
+      run: cmake --build build --config Release -j2
     - name: test
       run: cd build && ctest -j2
     - name: Upload zip
