@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 11)
 # add the CMakeFile that defines catch2
 add_subdirectory(3rd_party/catch2)
 
-# Add an library for the example classes
+# Add a library for the example classes
 add_library(example_unit_test
     Reverse.cpp
     Palindrome.cpp
@@ -24,10 +24,17 @@ enable_testing()
 
 # Add a testing executable
 add_executable(unit_tests unit_tests.cpp)
+add_executable(unit_tests2 unit_tests2.cpp)
 
 target_link_libraries(unit_tests
     example_unit_test
     Catch2::Test
 )
 
-add_test(test_all unit_tests)
+target_link_libraries(unit_tests2
+    example_unit_test
+    Catch2::Test
+)
+
+add_test(first_test unit_tests)
+add_test(second_test unit_tests2)

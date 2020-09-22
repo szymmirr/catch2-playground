@@ -25,12 +25,3 @@ TEST_CASE( "empty" )
 
     REQUIRE( res == "" );
 }
-
-TEST_CASE( "is_palindrome" )
-{
-    std::string pal = "mom";
-    Palindrome pally;
-
-    REQUIRE( pally.isPalindrome(pal) == true );
-
-}
