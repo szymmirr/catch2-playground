@@ -32,6 +32,8 @@ jobs:
       run: cmake --build build --config $BUILD_TYPE -j2
     - name: test
       run: cd build && ctest -j2
+    - name: dir
+      run: cd build && dir
     - name: Upload zip
       uses: actions/upload-artifact@v2
       with:
